@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\Login\LoginController;
 use App\Http\Controllers\Controles\ControlController;
@@ -57,4 +58,5 @@ Route::get('sin-permisos', [ControlController::class,'indexSinPermiso'])->name('
 
 Route::get('/admin/dashboard', [DashboardController::class,'vistaDashboard'])->name('admin.dashboard.index');
 
-
+// --- PARA LAS APIS ---
+Route::get('/apis', [ApiController::class, 'index'])->name('apis.index');
