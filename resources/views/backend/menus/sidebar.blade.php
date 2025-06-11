@@ -40,6 +40,8 @@
                  </li>
                 @endcan
 
+                 <!-- ROLES Y PERMISO -->
+                @can('sidebar.dashboard')
                 <!-- WEB WORKERS -->
                 <li class="nav-item">
                     <a href="{{ route('admin.webworkers.index') }}" target="frameprincipal" class="nav-link">
@@ -47,6 +49,7 @@
                         <p>Web Workers</p>
                     </a>
                 </li>
+                @endcan
 
             </ul>
         </nav>

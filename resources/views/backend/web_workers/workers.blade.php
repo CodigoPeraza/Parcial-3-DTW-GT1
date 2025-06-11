@@ -19,7 +19,7 @@
             <div class="card shadow-sm border-success mb-0">
                 <div class="card-header">
                     <p class="text-start">Mostrar lista de números</p><button type="button"
-                        class="btn btn-outline-primary" onclick="cargarListaNúmeros()">Cargar</button>
+                        class="btn btn-outline-primary" onclick="cargarListaNumeros()">Cargar</button>
                 </div>
                 <ul class="list-group list-group-flush" id="resultList">
                 </ul>
@@ -39,12 +39,11 @@
 <script src="{{ asset('js/alertaPersonalizada.js') }}"></script>
 
 <script type="text/javascript">
-    document.addEventListener("DOMContentLoaded", function () {
+    let worker;
 
-        let worker;
-
-        // Función para llamar a la generación de los 100k números
-        function cargarListaNúmeros() {
+    // Función para llamar a la generación de los 100k números
+    function cargarListaNumeros() {
+        try {
             // Generar 100,000 números aleatorios
             const numbers = Array.from({ length: 100000 }, () => Math.floor(Math.random() * 1000000));
             worker.postMessage(numbers);
@@ -52,10 +51,13 @@
             worker.onmessage = function (e) {
                 const sorted = e.data;
                 const list = document.getElementById('resultList');
+                list.innerHTML = ''; // Borra previo a agregar nuevos elementos
+                let i = 0;
                 sorted.forEach(num => {
                     const li = document.createElement('li');
                     li.textContent = num;
                     li.classList.add('list-group-item');
+                    li.id = `number-${i++}`;
                     list.appendChild(li);
                 });
             };
@@ -64,10 +66,17 @@
                 console.error("Error en el worker:", error.message);
                 toastr.error("Error en el Web Worker.");
             };
-        }
+        } catch (error) {
+            console.error("Error al cargar la lista de números:", error.message);
+            toastr.error("Error al cargar la lista de números.");
+            
+        } 
+    }
 
+    document.addEventListener("DOMContentLoaded", function () {        
         // Creamos un bloque trycatch para manejar nuestros errores
         try {
+            if (worker) worker.terminate(); // Finaliza el anterior worker si existe
             worker = new Worker('/js/web_worker/web_worker.js');
             document.getElementById("divcontenedor").style.display = "block";
         } catch (err) {
