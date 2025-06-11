@@ -36,8 +36,14 @@
         <div class="card-body text-center">
             <h6>Mi dibujo</h6>
             <canvas id="drawingCanvas" width="600" height="400" class="border mb-3"></canvas><br>
+            
+            <input type="color" id="colorPicker" style="display: none;" />
+            <button id="colorBtn" class="btn btn-outline-secondary" title="Seleccionar color">
+            <i class="bi bi-palette-fill"></i></button>
+            <button id="clearCanvas" class="btn btn-outline-secondary"><i class="bi bi-eraser-fill"></i></button>
+
             <button id="saveCanvas" class="btn btn-primary">Guardar dibujo</button>
-            <button id="clearCanvas" class="btn btn-primary"><i class="bi bi-eraser-fill"></i></button>
+
         </div>
     </div>
 
@@ -60,9 +66,16 @@
         const canvas = document.getElementById('drawingCanvas');
         const ctx = canvas.getContext('2d');
 
+        const colorInput = document.getElementById('colorPicker');
+        const colorBtn = document.getElementById('colorBtn');
+
+        colorBtn.addEventListener('click', () => colorInput.click());
+
         //Para que el fondo sea blanco, porque por defecto es transparente al guardalo
-        ctx.fillStyle = 'white';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        window.onload = () => {
+            ctx.fillStyle = 'white';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        };
 
         let drawing = false;
     
@@ -75,9 +88,10 @@
         canvas.addEventListener('mousemove', (e) => {
             if (!drawing) return;
             ctx.lineTo(e.offsetX, e.offsetY);
-            ctx.strokeStyle = 'black';  // Color del pincel
-            ctx.lineWidth = 2;          // Grosor del pincel
+            ctx.strokeStyle = colorInput.value;
+            ctx.lineWidth = 4;
             ctx.stroke();
+            drawing = true;
         });
 
         canvas.addEventListener('mouseup', () => {
@@ -96,15 +110,15 @@
             const link = document.createElement('a');
             link.href = dataURL;
             link.download = 'midibujo.jpg';
-            document.body.appendChild(link);
             link.click();
-            document.body.removeChild(link);
         });
 
         //Boton para borrar dibujo
         const BtnBorrar = document.getElementById('clearCanvas');
         BtnBorrar.addEventListener('click', function(){
             ctx.clearRect(0,0, canvas.width, canvas.height)
+            ctx.fillStyle = 'white';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
         })
 
         //--------------------------------
