@@ -14,6 +14,9 @@
     <link href="{{ asset('css/adminlte.min.css') }}" type="text/css" rel="stylesheet" />
     <!-- Mensajes Toast -->
     <link href="{{ asset('css/toastr.min.css') }}" type="text/css" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
     @yield('content-admin-css')
 </head>
 

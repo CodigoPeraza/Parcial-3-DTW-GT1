@@ -38,6 +38,13 @@
 
                     </ul>
                  </li>
+                 <li class="nav-item">
+                    <a class="nav-link" href="{{route('apis.index')}}" target="frameprincipal">
+                        <i class="bi bi-card-list"></i>
+                        <p>APIs</p>
+                    </a>
+
+                 </li>
                 @endcan
 
                  <!-- ROLES Y PERMISO -->
