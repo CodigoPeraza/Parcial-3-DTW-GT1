@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\Login\LoginController;
 use App\Http\Controllers\Controles\ControlController;
@@ -62,4 +63,16 @@ Route::get('/admin/web-workers', function () {
     return view('backend.web_workers.workers');
 })->name('admin.webworkers.index');
 
+// --- PARA LAS APIS ---
+Route::get('/apis', [ApiController::class, 'index'])->name('apis.index');
+<<<<<<< HEAD
+// --- WEB WORKERS ---
+Route::get('/admin/web-workers', function () {
+    return view('backend.web_workers.workers');
+})->name('admin.webworkers.index');
 
+
+=======
+// --- PARA LAS APIS ---
+Route::get('/apis', [ApiController::class, 'index'])->name('apis.index');
+>>>>>>> MR21082
