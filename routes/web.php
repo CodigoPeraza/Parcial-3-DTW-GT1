@@ -65,14 +65,3 @@ Route::get('/admin/web-workers', function () {
 
 // --- PARA LAS APIS ---
 Route::get('/apis', [ApiController::class, 'index'])->name('apis.index');
-<<<<<<< HEAD
-// --- WEB WORKERS ---
-Route::get('/admin/web-workers', function () {
-    return view('backend.web_workers.workers');
-})->name('admin.webworkers.index');
-
-
-=======
-// --- PARA LAS APIS ---
-Route::get('/apis', [ApiController::class, 'index'])->name('apis.index');
->>>>>>> MR21082
