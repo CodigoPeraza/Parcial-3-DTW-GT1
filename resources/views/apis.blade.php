@@ -48,15 +48,21 @@
     </div>
 
     <!-- Espacio para API de Video -->
-    <div class="card mb-4">
+     <!-----Implementacion del video y la imagen de portada----->
+     <div class="card mb-4">
         <div class="card-header">
-            <h5>API de Video</h5>
+            <h5>API de Captura de video</h5>
+         </div>
+         <div class="card-body text-center">
+            <video id="camara" width="640" height="360" autoplay playsinline class="border"></video>
+          <!-----Boton de captura, guardado y muestra de la foto----->
+          <button id="btnCapturar" class="btn btn-success mb-2">Tomar foto</button>
+          <canvas id="foto" width="640" height="360" class="border mb-2"></canvas>
+          <a id="btnGuardar" download="foto.png" class="btn btn-info">Guardar</a>
         </div>
-        <div class="card-body bg-light text-center" style="height: 150px;">
-            <p>Contenido pendiente.</p>
-        </div>
+     </div>
     </div>
-    </div>
+
 
     <script>
         //-- Espacio para API de Geolocalización --
@@ -123,6 +129,28 @@
 
         //--------------------------------
         //-- Espacio para API de Video --
+        //-----Script de los eventos----
+        // Declaración de constantes
+        const camara = document.getElementById('camara');
+        const btnCapturar = document.getElementById('btnCapturar');
+        const canvasFoto = document.getElementById('foto');
+        const contexto = canvasFoto.getContext('2d');
+        const btnGuardar = document.getElementById('btnGuardar');
 
+        // Conceder acceso a la camara
+        navigator.mediaDevices.getUserMedia({ video: true })
+          .then((stream) => {
+          camara.srcObject = stream;
+          })
+          //Manejo de errores
+         .catch((err) => {
+        console.error('Error al acceder a la cámara:', err);
+    });
+        // Tomar foto requerida
+        btnCapturar.addEventListener('click', () => {
+        contexto.drawImage(camara, 0, 0, canvasFoto.width, canvasFoto.height);
+        const imagenData = canvasFoto.toDataURL('image/png');
+        btnGuardar.href = imagenData;
+});
         //-------------------------------
     </script>
