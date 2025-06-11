@@ -11,9 +11,9 @@
 
                 <!-- ROLES Y PERMISO -->
                 @can('sidebar.roles.y.permisos')
-                 <li class="nav-item">
+                <li class="nav-item">
 
-                     <a href="#" class="nav-link nav-">
+                    <a href="#" class="nav-link nav">
                         <i class="far fa-edit"></i>
                         <p>
                             Roles y Permisos
@@ -37,18 +37,14 @@
                         </li>
 
                     </ul>
-                 </li>
-                 <li class="nav-item">
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{route('apis.index')}}" target="frameprincipal">
                         <i class="bi bi-card-list"></i>
                         <p>APIs</p>
                     </a>
 
-                 </li>
-                @endcan
-
-                 <!-- ROLES Y PERMISO -->
-                @can('sidebar.dashboard')
+                </li>
                 <!-- WEB WORKERS -->
                 <li class="nav-item">
                     <a href="{{ route('admin.webworkers.index') }}" target="frameprincipal" class="nav-link">
@@ -57,6 +53,9 @@
                     </a>
                 </li>
                 @endcan
+
+
+
 
             </ul>
         </nav>
