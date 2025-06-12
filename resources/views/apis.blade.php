@@ -54,10 +54,10 @@
             <h5>API de Captura de video</h5>
          </div>
          <div class="card-body text-center">
-            <video id="camara" width="640" height="360" autoplay playsinline class="border"></video>
+            <video id="camara" width="640" height="360" autoplay playsinline class="border mb-2 mx-auto d-block"></video>
           <!-----Boton de captura, guardado y muestra de la foto----->
-          <button id="btnCapturar" class="btn btn-success mb-2">Tomar foto</button>
-          <canvas id="foto" width="640" height="360" class="border mb-2"></canvas>
+          <button id="btnCapturar" class="btn btn-success mb-3">Tomar foto</button>
+          <canvas id="foto" width="640" height="360" class="border mb-3 mx-auto d-block"></canvas>
           <a id="btnGuardar" download="foto.png" class="btn btn-info">Guardar</a>
         </div>
      </div>
