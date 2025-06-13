@@ -1,66 +1,64 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Escudo_de_la_Universidad_de_El_Salvador.svg/1200px-Escudo_de_la_Universidad_de_El_Salvador.svg.png" alt="LogoUes" width="20%" height="40%">
+</p>
+<p align="center">
+    <img src="https://drive.google.com/uc?export=view&id=1K45h2JPReuWVNaSC_PmiPYmEIyGLCqeF" alt="LogoIDS" width="50%" height="100%">
 </p>
 
-## About Laravel
+# Examen Parcial 3 - Desarrollo y Técnicas de Aplicaciones Web DTW135 - GT01
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 📘 Tema: APIs y Web Workers
+Este proyecto corresponde al tercer examen parcial del curso **Desarrollo y Técnicas de Aplicaciones Web**, y tiene como objetivo integrar el uso de **APIs modernas del navegador** y **Web Workers** en un proyecto web existente desarrollado con Laravel.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 📂 Estructura del Proyecto
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Este proyecto fue desarrollado a partir del repositorio base proporcionado y bifurcado (fork) en la cuenta GitHub de uno de los miembros del grupo, siguiendo las instrucciones brindadas:
+- Geolocalización del usuario y visualización en mapa.
+- Dibujo libre con Canvas y descarga del resultado.
+- Captura de imagen desde la cámara web.
+- Cálculos intensivos en segundo plano utilizando Web Workers para no bloquear la interfaz.
 
-## Learning Laravel
+## 🔑 Credenciales para iniciar sesión:
+**Usuario:** admin <br>
+**Contraseña:** 1234
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 🛠️ Tecnologías Utilizadas
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- **Backend:** Laravel (PHP)
+- **Frontend:** HTML, Blade, JavaScript
+- **APIs del navegador:** 
+  - Geolocation API
+  - Canvas API
+  - MediaDevices (getUserMedia) API
+- **Librerías externas:**
+  - LeafletJS + OpenStreetMap (para mapas)
+- **Web Workers:** para procesamiento intensivo (ordenamiento de arrays grandes)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## ⚙️ Funcionalidades implementadas
 
-## Laravel Sponsors
+### 📍 Geolocalización
+- Se muestran las coordenadas actuales del usuario (latitud y longitud).
+- Se muestra la ubicación en un mapa con LeafletJS.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 🖌️ Canvas
+- Zona de dibujo libre con el mouse (líneas negras simples).
+- Botón para descargar el dibujo en formato JPG (solo del lado cliente).
 
-### Premium Partners
+### 📷 Captura de Video
+- Visualización de la cámara web del usuario.
+- Botón para tomar una foto.
+- Imagen capturada se guarda como archivo (cliente).
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### 🧠 Web Worker
+- Generación de 100,000 números aleatorios.
+- Envío de datos al Web Worker para ordenarlos sin bloquear la UI.
+- Se muestran los primeros 50 números ya ordenados.
+- Uso de `try...catch` en todas las funciones críticas para manejo de errores.
 
-## Contributing
+## 👥 Integrantes del Grupo
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+1. BA22025 | Fernando José Barraza Álvarez
+2. JQ22003 | Axel Rodrigo Juarez Quevedo
+3. MM18069 | Wendy Carolina Mejía Martínez
+4. MR21082 | Reyna Guadalupe Miranda Rivas
+5. PM18077 | Francisco Javier Peraza Martínez
