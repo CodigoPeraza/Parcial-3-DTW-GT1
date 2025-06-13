@@ -48,7 +48,7 @@
                 <!-- WEB WORKERS -->
                 <li class="nav-item">
                     <a href="{{ route('admin.webworkers.index') }}" target="frameprincipal" class="nav-link">
-                        <i class="fas fa-cogs nav-icon"></i>
+                        <i class="bi bi-list-ol"></i>
                         <p>Web Workers</p>
                     </a>
                 </li>
